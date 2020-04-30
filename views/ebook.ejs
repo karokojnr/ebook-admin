@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                     </table>
-                    <iframe id="pdf-render" src="<%= ebook %>" width="100%" height="600px" allowtransparency="true"
+                    <iframe id="pdf-render" src="<%= ebookPath %>" width="100%" height="600px" allowtransparency="true"
                         style="border: none; background: #FFFFFF;">
                         <!-- <canvas id="pdf-render" width="1000px" height="600px"> -->
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.min.js"
@@ -48,7 +48,7 @@
                             crossorigin="anonymous"></script>
                         <script>
                             // simple.js
-                            const url = "<%= ebook %>";
+                            const url = "<%= ebookPath %>";
                             let pdfDoc = null,
                                 pageNum = 1,
                                 pageIsRendering = false,

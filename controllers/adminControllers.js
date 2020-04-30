@@ -63,6 +63,7 @@ exports.getEbook = (req, res) => {
       const ebookPath = ebook.ebookfile;
       const name = req.user.username;
       res.render("ebook", {
+        ebookPath: ebookPath,
         ebook: ebook,
         name: name,
       });
