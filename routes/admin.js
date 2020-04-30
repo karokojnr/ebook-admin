@@ -15,6 +15,11 @@ app.put(
   ensureAuthenticated,
   adminController.approveEbook
 );
+app.put(
+  "/disapprove-ebook/:id",
+  ensureAuthenticated,
+  adminController.disapproveEbook
+);
 app.get("/publishers", ensureAuthenticated, adminController.getPublishers);
 app.put(
   "/suspend-publisher/:id",

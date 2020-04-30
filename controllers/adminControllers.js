@@ -169,3 +169,21 @@ exports.approveEbook = (req, res) => {
       console.log(e.message);
     });
 };
+exports.disapproveEbook = (req, res) => {
+  const ebookId = req.params.id;
+  Ebook.findById(ebookId)
+    .then((ebook) => {
+      if (ebook.isApproved === "NO") {
+        req.flash("error_msg", "The eBook is already disapproved.");
+        res.redirect("/ebooks");
+      }
+      ebook.isApproved = "NO";
+      ebook.save().then((updatedEbook) => {
+        req.flash("success_msg", "Success! Ebook Disapproved!");
+        res.redirect("/ebooks");
+      });
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
+};

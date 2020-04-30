@@ -25,10 +25,12 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>Created At</th>
+                                    <th>Publisher</th>
                                     <th>Description</th>
                                     <th>eBook</th>
                                     <th>Is Approved</th>
                                     <th>Action 1</th>
+                                    <th>Action 2</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +39,7 @@
                                 <tr>
                                     <td><%= ebook.title %></td>
                                     <td><%= ebook.createdAt %></td>
+                                    <td><%= ebook.publisher %></td>
                                     <td><%= ebook.description %></td>
                                     <td><a href="/ebook/<%= ebook._id %>">View eBook</a></td>
                                     <td><%= ebook.isApproved %></td>
@@ -44,6 +47,13 @@
                                         <form action="/approve-ebook/<%= ebook._id %>?_method=PUT" method="post">
                                             <button type="submit" class="btn btn-info">
                                                 Approve
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="/disapprove-ebook/<%= ebook._id %>?_method=PUT" method="post">
+                                            <button type="submit" class="btn btn-danger">
+                                                Dispprove
                                             </button>
                                         </form>
                                     </td>
